@@ -1,0 +1,47 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "sprites-personagens.tsx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "labirinto-tileset.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 5.5
+        },
+        "sprites-personagens.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 2
+        }
+    },
+    "frame.defaultDuration": 100,
+    "last.exportedFilePath": "C:/dev/escribo-pacman/tiled",
+    "last.imagePath": "C:/worspace/escribo-pacman",
+    "lastUsedTilesetExportFilter": "Arquivos de conjunto de blocos JSON (*.tsj *.json)",
+    "map.height": 31,
+    "map.lastUsedExportFilter": "Arquivos de mapa JSON (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 8,
+    "map.tileWidth": 8,
+    "map.width": 28,
+    "openFiles": [
+        "sprites-personagens.tsx"
+    ],
+    "project": "mapa-pacman.tiled-project",
+    "recentFiles": [
+        "sprites-personagens.tsx",
+        "labirinto-tileset.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 0,
+    "tileset.spacing": 1,
+    "tileset.tileSize": {
+        "height": 15,
+        "width": 15
+    },
+    "tileset.transparentColor": "#959595",
+    "tileset.useTransparentColor": false
+}

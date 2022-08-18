@@ -1,0 +1,14 @@
+{ "columns":14,
+ "image":"sprites-personagens.png",
+ "imageheight":212,
+ "imagewidth":227,
+ "margin":0,
+ "name":"sprites-personagens",
+ "spacing":1,
+ "tilecount":182,
+ "tiledversion":"1.9.1",
+ "tileheight":15,
+ "tilewidth":15,
+ "type":"tileset",
+ "version":"1.8"
+}
