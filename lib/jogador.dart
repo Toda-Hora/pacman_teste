@@ -1,13 +1,13 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:escribo_pacman/animacoes.dart';
+import 'package:escribo_pacman/animacoes_jogador.dart';
 
 class Jogador extends RotationPlayer with ObjectCollision {
   Jogador(Vector2 position)
       : super(
           position: position,
-          animRun: Animacoes().jogCorre,
+          animRun: AnimacoesJogador().jogCorre,
           size: Vector2(32, 32),
-          animIdle: Animacoes().jogPara,
+          animIdle: AnimacoesJogador().jogPara,
           speed: 150,
         ) {
     setupCollision(
@@ -20,5 +20,10 @@ class Jogador extends RotationPlayer with ObjectCollision {
         ],
       ),
     );
+  }
+  @override
+  bool onCollision(GameComponent component, bool active) {
+    // TODO: implement onCollision
+    return super.onCollision(component, active);
   }
 }

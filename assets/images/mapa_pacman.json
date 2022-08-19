@@ -43,9 +43,31 @@
          "width":28,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":3,
+         "name":"Camada de Objetos 1",
+         "objects":[
+                {
+                 "class":"",
+                 "height":16,
+                 "id":2,
+                 "name":"fantasma_vermelho",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":118.998577524893,
+                 "y":111.384068278805
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":3,
- "nextobjectid":1,
+ "nextlayerid":4,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.1",

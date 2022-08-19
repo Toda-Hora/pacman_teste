@@ -1,6 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 
-class Animacoes {
+class AnimacoesJogador {
   Future<SpriteAnimation> get jogPara => SpriteAnimation.load(
       'personagens.png',
       SpriteAnimationData.sequenced(

@@ -1,4 +1,5 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:escribo_pacman/fantasmas.dart';
 import 'package:escribo_pacman/jogador.dart';
 import 'package:flutter/material.dart';
 
@@ -50,6 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
             keyboardDirectionalType: KeyboardDirectionalType.wasdAndArrows,
           )),
           map: TiledWorldMap('mapa_pacman.json',
+              objectsBuilder: {
+                'fantasma_vermelho': (properties) =>
+                    FantasmaVermelho(properties.position),
+              },
               forceTileSize: Size(tileSize, tileSize))),
     );
   }
