@@ -1,5 +1,7 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:escribo_pacman/animacoes_jogador.dart';
+import 'package:escribo_pacman/const_enum.dart';
+import 'package:escribo_pacman/fantasmas.dart';
 
 class Jogador extends RotationPlayer with ObjectCollision {
   Jogador(Vector2 position)
@@ -23,7 +25,20 @@ class Jogador extends RotationPlayer with ObjectCollision {
   }
   @override
   bool onCollision(GameComponent component, bool active) {
-    // TODO: implement onCollision
+    if (component is FantasmaVermelho) {
+      simpleAttackMelee(
+          damage: 150,
+          size: Vector2(tileSize, tileSize),
+          animation: AnimacoesJogador().jogAtaque,
+          withPush: false);
+    }
+
     return super.onCollision(component, active);
+  }
+
+  @override
+  void die() {
+    playSpriteAnimationOnce(AnimacoesJogador().jogMorre);
+    super.die();
   }
 }

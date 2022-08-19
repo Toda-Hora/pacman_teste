@@ -33,19 +33,47 @@ class AnimacoesFantasmas {
           amount: 2,
           stepTime: velAnimacao,
           textureSize: Vector2(tileSize, tileSize),
-          texturePosition: Vector2(posX, tileSize * 2)));
+          texturePosition: Vector2(tileSize * 2, posX)));
   Future<SpriteAnimation> get fantCima => SpriteAnimation.load(
       'personagens.png',
       SpriteAnimationData.sequenced(
           amount: 2,
           stepTime: velAnimacao,
           textureSize: Vector2(tileSize, tileSize),
-          texturePosition: Vector2(posX, tileSize * 4)));
+          texturePosition: Vector2(tileSize * 4, posX)));
   Future<SpriteAnimation> get fantBaixo => SpriteAnimation.load(
       'personagens.png',
       SpriteAnimationData.sequenced(
           amount: 2,
           stepTime: velAnimacao,
           textureSize: Vector2(tileSize, tileSize),
-          texturePosition: Vector2(posX, tileSize * 6)));
+          texturePosition: Vector2(tileSize * 6, posX)));
+  Future<SpriteAnimation> get fantMortoDir => SpriteAnimation.load(
+      'personagens.png',
+      SpriteAnimationData.sequenced(
+          amount: 1,
+          stepTime: velAnimacao,
+          textureSize: Vector2(tileSize, tileSize),
+          texturePosition: Vector2(tileSize * 8, tileSize * 5)));
+  Future<SpriteAnimation> get fantMortoEsq => SpriteAnimation.load(
+      'personagens.png',
+      SpriteAnimationData.sequenced(
+          amount: 1,
+          stepTime: velAnimacao,
+          textureSize: Vector2(tileSize, tileSize),
+          texturePosition: Vector2(tileSize * 9, tileSize * 5)));
+  Future<SpriteAnimation> get fantMortoCima => SpriteAnimation.load(
+      'personagens.png',
+      SpriteAnimationData.sequenced(
+          amount: 1,
+          stepTime: velAnimacao,
+          textureSize: Vector2(tileSize, tileSize),
+          texturePosition: Vector2(tileSize * 10, tileSize * 5)));
+  Future<SpriteAnimation> get fantMortoBaixo => SpriteAnimation.load(
+      'personagens.png',
+      SpriteAnimationData.sequenced(
+          amount: 1,
+          stepTime: velAnimacao,
+          textureSize: Vector2(tileSize, tileSize),
+          texturePosition: Vector2(tileSize * 11, tileSize * 5)));
 }

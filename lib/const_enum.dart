@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 const tileSize = 16.0;
 
 enum Fantasmas {

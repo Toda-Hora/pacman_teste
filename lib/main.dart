@@ -52,8 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
           )),
           map: TiledWorldMap('mapa_pacman.json',
               objectsBuilder: {
-                'fantasma_vermelho': (properties) =>
-                    FantasmaVermelho(properties.position),
+                'fantasma_vermelho': (properties) {
+                  return FantasmaVermelho(properties.position);
+                },
               },
               forceTileSize: Size(tileSize, tileSize))),
     );
