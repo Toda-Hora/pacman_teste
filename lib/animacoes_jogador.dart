@@ -16,4 +16,18 @@ class AnimacoesJogador {
           stepTime: 0.1,
           textureSize: Vector2(16, 16),
           texturePosition: Vector2(0, 0)));
+  Future<SpriteAnimation> get jogAtaque => SpriteAnimation.load(
+      'personagens.png',
+      SpriteAnimationData.sequenced(
+          amount: 1,
+          stepTime: 0.1,
+          textureSize: Vector2(0, 0),
+          texturePosition: Vector2(0, 0)));
+  Future<SpriteAnimation> get jogMorre => SpriteAnimation.load(
+      'personagens.png',
+      SpriteAnimationData.sequenced(
+          amount: 12,
+          stepTime: 0.1,
+          textureSize: Vector2(16, 16),
+          texturePosition: Vector2(32, 0)));
 }
