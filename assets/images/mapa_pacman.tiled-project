@@ -1,0 +1,11 @@
+{
+    "automappingRulesFile": "regrapontos.tmx",
+    "commands": [
+    ],
+    "extensionsPath": "extensions",
+    "folders": [
+        "."
+    ],
+    "propertyTypes": [
+    ]
+}

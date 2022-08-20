@@ -1,0 +1,54 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "automapping.whileDrawing": true,
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "Todos os Arquivos (*)",
+    "fileStates": {
+        "://automap-tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "mapa_pacman.json": {
+            "scale": 2.267741935483871,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 111.56472261735419,
+                "y": 123.91180654338548
+            }
+        },
+        "mapa_pacman.tmx": {
+            "scale": 2.267741935483871,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 112.00568990042674,
+                "y": 124.35277382645805
+            }
+        },
+        "regrapontos.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 16,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 23.5,
+                "y": 17.375
+            }
+        }
+    },
+    "map.height": 30,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 8,
+    "map.tileWidth": 8,
+    "map.width": 27,
+    "openFiles": [
+    ],
+    "project": "mapa_pacman.tiled-project",
+    "recentFiles": [
+        "mapa_pacman.json"
+    ]
+}

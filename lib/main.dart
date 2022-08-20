@@ -55,6 +55,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 'fantasma_vermelho': (properties) {
                   return FantasmaVermelho(properties.position);
                 },
+                'ponto': ((properties) {
+                  return FantasmaVermelho(properties.position);
+                })
               },
               forceTileSize: Size(tileSize, tileSize))),
     );
