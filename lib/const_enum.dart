@@ -6,3 +6,10 @@ enum Fantasmas {
   azul,
   amarelo,
 }
+
+enum FrutasEnum {
+  cereja,
+  morango,
+  pera,
+  maca,
+}

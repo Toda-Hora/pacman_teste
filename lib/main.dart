@@ -1,5 +1,8 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:escribo_pacman/bolas.dart';
+import 'package:escribo_pacman/const_enum.dart';
 import 'package:escribo_pacman/fantasmas.dart';
+import 'package:escribo_pacman/interface_jogador.dart';
 import 'package:escribo_pacman/jogador.dart';
 import 'package:flutter/material.dart';
 
@@ -36,30 +39,32 @@ class _MyHomePageState extends State<MyHomePage> {
   final double tileSize = 16;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('SCORE:'),
-        backgroundColor: Colors.black,
+    return BonfireTiledWidget(
+      overlayBuilderMap: {
+        InterfaceJogador.overlayKey: (context, game) =>
+            InterfaceJogador(game: game)
+      },
+      showCollisionArea: false,
+      cameraConfig: CameraConfig(
+          moveOnlyMapArea: true, sizeMovementWindow: Vector2(0, 0)),
+      player: Jogador(Vector2(220, 73)),
+      joystick: Joystick(keyboardConfig: KeyboardConfig()),
+      map: TiledWorldMap(
+        'mapa_pacman.json',
+        objectsBuilder: {
+          'fantasma_vermelho': (properties) {
+            return Fantasma(properties.position, Fantasmas.amarelo);
+          },
+          'ponto': (properties) {
+            return BolasPontos(properties.position);
+          },
+          'poder': ((properties) {
+            return BolasPoder(properties.position);
+          })
+        },
+        forceTileSize: Size(tileSize, tileSize),
       ),
-      body: BonfireTiledWidget(
-          showCollisionArea: false,
-          cameraConfig: CameraConfig(
-              moveOnlyMapArea: true, sizeMovementWindow: Vector2(0, 0)),
-          player: Jogador(Vector2(tileSize * 13, tileSize * 22.5)),
-          joystick: Joystick(
-              keyboardConfig: KeyboardConfig(
-            keyboardDirectionalType: KeyboardDirectionalType.wasdAndArrows,
-          )),
-          map: TiledWorldMap('mapa_pacman.json',
-              objectsBuilder: {
-                'fantasma_vermelho': (properties) {
-                  return FantasmaVermelho(properties.position);
-                },
-                'ponto': ((properties) {
-                  return FantasmaVermelho(properties.position);
-                })
-              },
-              forceTileSize: Size(tileSize, tileSize))),
+      initialActiveOverlays: const [InterfaceJogador.overlayKey],
     );
   }
 }

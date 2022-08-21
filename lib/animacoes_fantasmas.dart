@@ -20,6 +20,34 @@ class AnimacoesFantasmas {
         break;
     }
   }
+  SimpleDirectionAnimation get atacavel => SimpleDirectionAnimation(
+      idleRight: fantAtacavel,
+      runRight: fantAtacavel,
+      idleDown: fantAtacavel,
+      runDown: fantAtacavel,
+      idleLeft: fantAtacavel,
+      runLeft: fantAtacavel,
+      runUp: fantAtacavel,
+      idleUp: fantAtacavel);
+
+  SimpleDirectionAnimation get fantasma => SimpleDirectionAnimation(
+      idleRight: fantDir,
+      runRight: fantDir,
+      idleDown: fantBaixo,
+      runDown: fantBaixo,
+      idleLeft: fantEsq,
+      runLeft: fantEsq,
+      runUp: fantCima,
+      idleUp: fantCima);
+
+  Future<SpriteAnimation> get fantAtacavel => SpriteAnimation.load(
+      'personagens.png',
+      SpriteAnimationData.sequenced(
+          amount: 4,
+          stepTime: velAnimacao,
+          textureSize: Vector2(tileSize, tileSize),
+          texturePosition: Vector2(tileSize * 8, tileSize * 4)));
+
   Future<SpriteAnimation> get fantDir => SpriteAnimation.load(
       'personagens.png',
       SpriteAnimationData.sequenced(

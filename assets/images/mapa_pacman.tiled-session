@@ -3,21 +3,26 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "mapa_pacman.json",
     "automapping.whileDrawing": true,
     "expandedProjectPaths": [
+        "."
     ],
     "file.lastUsedOpenFilter": "Todos os Arquivos (*)",
     "fileStates": {
-        "://automap-tiles.tsx": {
+        ":/automap-tiles.tsx": {
             "scaleInDock": 1
         },
+        "labirinto-tileset.json": {
+            "scaleInDock": 2,
+            "scaleInEditor": 4
+        },
         "mapa_pacman.json": {
-            "scale": 2.267741935483871,
+            "scale": 2,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 111.56472261735419,
-                "y": 123.91180654338548
+                "x": 111.75,
+                "y": 123.75
             }
         },
         "mapa_pacman.tmx": {
@@ -35,20 +40,25 @@
             "scale": 16,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 23.5,
-                "y": 17.375
+                "x": 107.96875,
+                "y": 119.96875
             }
         }
     },
     "map.height": 30,
-    "map.lastUsedFormat": "tmx",
+    "map.lastUsedFormat": "json",
     "map.tileHeight": 8,
     "map.tileWidth": 8,
     "map.width": 27,
     "openFiles": [
+        "mapa_pacman.json",
+        "regrapontos.tmx",
+        "labirinto-tileset.json"
     ],
     "project": "mapa_pacman.tiled-project",
     "recentFiles": [
+        "labirinto-tileset.json",
+        "regrapontos.tmx",
         "mapa_pacman.json"
     ]
 }
