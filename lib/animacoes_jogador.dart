@@ -1,6 +1,10 @@
 import 'package:bonfire/bonfire.dart';
 
 class AnimacoesJogador {
+  SimpleDirectionAnimation get jogadorAnim => SimpleDirectionAnimation(
+        idleRight: jogPara,
+        runRight: jogCorre,
+      );
   Future<SpriteAnimation> get jogPara => SpriteAnimation.load(
       'personagens.png',
       SpriteAnimationData.sequenced(

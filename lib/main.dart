@@ -53,7 +53,8 @@ class _MyHomePageState extends State<MyHomePage> {
         'mapa_pacman.json',
         objectsBuilder: {
           'fantasma_vermelho': (properties) {
-            return Fantasma(properties.position, Fantasmas.amarelo);
+            return Fantasma(
+                position: properties.position, cor: Fantasmas.amarelo);
           },
           'ponto': (properties) {
             return BolasPontos(properties.position);

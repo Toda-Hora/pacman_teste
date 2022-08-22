@@ -3,15 +3,15 @@ import 'package:escribo_pacman/animacoes_fantasmas.dart';
 import 'package:escribo_pacman/const_enum.dart';
 import 'package:escribo_pacman/jogador.dart';
 
-class Fantasma extends SimpleEnemy with ObjectCollision {
-  Fantasma(Vector2 position, Fantasmas cor)
+class Fantasma extends SimpleEnemy
+    with ObjectCollision, MoveToPositionAlongThePath {
+  Fantasma({required Vector2 position, required this.cor})
       : super(
             life: 100,
             speed: 70,
             position: position,
             size: Vector2(32, 32),
             animation: AnimacoesFantasmas.fromColor(cor).fantasma) {
-    _cor = cor;
     setupCollision(
       CollisionConfig(
         collisions: [
@@ -23,30 +23,53 @@ class Fantasma extends SimpleEnemy with ObjectCollision {
       ),
     );
   }
-  var _cor;
+  final Fantasmas cor;
   var animacaoAtual = "";
+  bool isMorto = false;
+
   @override
   void update(double dt) {
-    seeAndMoveToPlayer(
-        closePlayer: (jogador) {
-          if (jogador is Jogador) {
-            if (jogador.atacavel) {
-              simpleAttackMelee(damage: 150, size: Vector2(tileSize, tileSize));
-            }
-          }
-        },
-        radiusVision: tileSize * 16);
+    if (isMorto) {
+      moveToPositionAlongThePath(
+        Vector2(tileSize * 14, tileSize * 14),
+      );
+    }
+    if (position.x < tileSize * 17 &&
+        position.x > tileSize * 11 &&
+        position.y < tileSize * 14 &&
+        position.x > tileSize * 13 &&
+        isMorto) {
+      isMorto = false;
+      enableCollision(true);
+      addLife(100);
+    }
+
     seePlayer(
         observed: (jogador) {
+          if (!isMorto) {
+            seeAndMoveToPlayer(
+                closePlayer: (jogador) {
+                  if (jogador is Jogador) {
+                    if (jogador.atacavel && !jogador.invulneravel) {
+                      simpleAttackMelee(
+                          damage: 150, size: Vector2(tileSize, tileSize));
+                    } else {
+                      removeLife(150);
+                    }
+                  }
+                },
+                radiusVision: tileSize * 16);
+          }
+
           if (jogador is Jogador) {
             if (!jogador.atacavel) {
-              if (animacaoAtual != "atacavel" && animacaoAtual != "morto") {
-                replaceAnimation(AnimacoesFantasmas.fromColor(_cor).atacavel);
+              if (animacaoAtual != "atacavel" && !isMorto) {
+                replaceAnimation(AnimacoesFantasmas.fromColor(cor).atacavel);
                 animacaoAtual = "atacavel";
               }
             } else {
-              if (animacaoAtual != "normal") {
-                replaceAnimation(AnimacoesFantasmas.fromColor(_cor).fantasma);
+              if (animacaoAtual != "normal" && !isMorto) {
+                replaceAnimation(AnimacoesFantasmas.fromColor(cor).fantasma);
                 animacaoAtual = "normal";
               }
             }
@@ -58,21 +81,9 @@ class Fantasma extends SimpleEnemy with ObjectCollision {
 
   @override
   void die() {
-    replaceAnimation(SimpleDirectionAnimation(
-        idleRight:
-            AnimacoesFantasmas.fromColor(Fantasmas.vermelho).fantMortoDir,
-        runRight: AnimacoesFantasmas.fromColor(Fantasmas.vermelho).fantMortoDir,
-        idleLeft: AnimacoesFantasmas.fromColor(Fantasmas.vermelho).fantMortoEsq,
-        runLeft: AnimacoesFantasmas.fromColor(Fantasmas.vermelho).fantMortoEsq,
-        idleDown:
-            AnimacoesFantasmas.fromColor(Fantasmas.vermelho).fantMortoBaixo,
-        runDown:
-            AnimacoesFantasmas.fromColor(Fantasmas.vermelho).fantMortoBaixo,
-        idleUp: AnimacoesFantasmas.fromColor(Fantasmas.vermelho).fantMortoCima,
-        runUp: AnimacoesFantasmas.fromColor(Fantasmas.vermelho).fantMortoCima));
+    replaceAnimation(AnimacoesFantasmas.fromColor(cor).fantMorto);
     animacaoAtual = "morto";
+    isMorto = true;
     enableCollision(false);
-    removeFromParent();
-    super.die();
   }
 }

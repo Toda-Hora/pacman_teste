@@ -8,7 +8,9 @@ class BolasPontos extends GameDecoration with Sensor {
       : super.withAnimation(
             animation: AnimacoesDecor().bolasPonto,
             position: position,
-            size: Vector2.all(tileSize));
+            size: Vector2.all(tileSize)) {
+    setupSensorArea(intervalCheck: 50);
+  }
 
   @override
   void onContact(GameComponent component) {

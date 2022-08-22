@@ -40,6 +40,16 @@ class AnimacoesFantasmas {
       runUp: fantCima,
       idleUp: fantCima);
 
+  SimpleDirectionAnimation get fantMorto => SimpleDirectionAnimation(
+      idleRight: fantMortoDir,
+      runRight: fantMortoDir,
+      idleDown: fantMortoBaixo,
+      runDown: fantMortoBaixo,
+      idleLeft: fantMortoEsq,
+      runLeft: fantMortoEsq,
+      runUp: fantMortoCima,
+      idleUp: fantMortoCima);
+
   Future<SpriteAnimation> get fantAtacavel => SpriteAnimation.load(
       'personagens.png',
       SpriteAnimationData.sequenced(

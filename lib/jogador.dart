@@ -6,6 +6,7 @@ import 'package:escribo_pacman/fantasmas.dart';
 class Jogador extends RotationPlayer with ObjectCollision {
   int _pontos = 0;
   bool atacavel = true;
+  bool invulneravel = false;
   int vidas = 3;
   Jogador(Vector2 position)
       : super(
@@ -29,9 +30,13 @@ class Jogador extends RotationPlayer with ObjectCollision {
 
   @override
   bool onCollision(GameComponent component, bool active) {
-    if (component is Fantasma && !atacavel) {
-      component.receiveDamage(
-          AttackFromEnum.PLAYER_OR_ALLY, 150, ReceivesAttackFromEnum.ALL);
+    if (component is Fantasma && !atacavel && !invulneravel) {
+      var componente = component;
+      componente.removeLife(150);
+      simpleAttackMelee(
+          damage: 150,
+          size: Vector2.all(16),
+          animation: AnimacoesJogador().jogAtaque);
     }
 
     return super.onCollision(component, active);
@@ -40,8 +45,9 @@ class Jogador extends RotationPlayer with ObjectCollision {
   @override
   void die() {
     playSpriteAnimationOnce(AnimacoesJogador().jogMorre);
-    moveTo(Vector2(tileSize * 13, tileSize * 22.5));
+    invulneravel = true;
     vidas = vidas - 1;
+    //enableCollision(false);
     if (vidas == 0) {
       removeFromParent();
       super.die();

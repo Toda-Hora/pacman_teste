@@ -21,6 +21,7 @@ class _InterfaceJogadorState extends State<InterfaceJogador> {
   int tempo = 0;
   int _vidas = 0;
   int tempPoder = 0;
+  int tempInvulneravel = 0;
   int contFruta = 0;
 
   @override
@@ -49,13 +50,16 @@ class _InterfaceJogadorState extends State<InterfaceJogador> {
   void _verificaScore(asyncro.Timer timer) {
     tempo += 1;
     if (tempo == 100) {
-      widget.game.map.add(Fantasma(Vector2(220, 232), Fantasmas.azul));
+      widget.game.map
+          .add(Fantasma(position: Vector2(220, 232), cor: Fantasmas.azul));
     }
     if (tempo == 200) {
-      widget.game.map.add(Fantasma(Vector2(220, 232), Fantasmas.rosa));
+      widget.game.map
+          .add(Fantasma(position: Vector2(220, 232), cor: Fantasmas.rosa));
     }
     if (tempo == 300) {
-      widget.game.map.add(Fantasma(Vector2(220, 232), Fantasmas.vermelho));
+      widget.game.map
+          .add(Fantasma(position: Vector2(220, 232), cor: Fantasmas.vermelho));
     }
     if (widget.game.player is Jogador && widget.game.player != null) {
       var jogador = widget.game.player as Jogador;
@@ -64,6 +68,13 @@ class _InterfaceJogadorState extends State<InterfaceJogador> {
         if (tempPoder > 100) {
           jogador.atacavel = true;
           tempPoder = 0;
+        }
+      }
+      if (jogador.invulneravel) {
+        tempInvulneravel += 1;
+        if (tempInvulneravel > 250) {
+          jogador.invulneravel = false;
+          jogador.enableCollision(true);
         }
       }
       if (jogador.pontos != score) {
